@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium automotive rentals — modern fleet, flexible terms, and a seamless experience. Explore our services and about us.">
+  <title>DriveLux — Automotive Rentals</title>
+  <!-- Google Fonts for clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Simple CSS reset + base styles -->
+  <style>
+    /* ----- Reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #ffffff;
+      color: #1e1e2f;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    /* ----- Container / layout helpers ----- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: #0b1a2f;
+    }
+
+    .section-subhead {
+      font-size: 1.125rem;
+      color: #4a5568;
+      max-width: 680px;
+      margin-bottom: 48px;
+    }
+
+    /* ----- Buttons (for future CTAs, subtle) ----- */
+    .btn {
+      display: inline-block;
+      background-color: #0b1a2f;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s ease, transform 0.1s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      background-color: #1e2f46;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #0b1a2f;
+      border: 1.5px solid #0b1a2f;
+    }
+
+    .btn-outline:hover {
+      background: #0b1a2f;
+      color: white;
+    }
+
+    /* ----- Header / Navigation ----- */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0b1a2f;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #2b6cb0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2d3748;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2b6cb0;
+    }
+
+    /* ----- Hero (minimal, imagery driven) ----- */
+    .hero {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      border-radius: 0 0 48px 48px;
+      padding: 40px 0 60px;
+      margin-bottom: 20px;
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1 1 320px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: #0b1a2f;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #2d3748;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.02);
+    }
+
+    /* ----- About & Services (core section) ----- */
+    .about-services {
+      background-color: #ffffff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #0b1a2f;
+    }
+
+    .about-text p {
+      color: #2d3748;
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+    }
+
+    .about-text .highlight {
+      background: #ebf4ff;
+      padding: 20px 24px;
+      border-radius: 20px;
+      border-left: 4px solid #2b6cb0;
+      font-weight: 500;
+      color: #1a365d;
+      margin-top: 24px;
+    }
+
+    .services-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .services-list li {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+      font-size: 1rem;
+      color: #1e2f46;
+    }
+
+    .services-list li::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #2b6cb0;
+      color: white;
+      font-weight: 700;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .fleet-highlights {
+      background: #f9fbfd;
+      border-radius: 40px;
+      padding: 40px;
+      margin-top: 20px;
+    }
+
+    .fleet-highlights h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: #0b1a2f;
+    }
+
+    .fleet-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .fleet-card {
+      background: white;
+      padding: 24px 20px;
+      border-radius: 24px;
+      box-shadow: 0 8px 18px -6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #e9edf2;
+    }
+
+    .fleet-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -8px rgba(0, 0, 0, 0.1);
+    }
+
+    .fleet-card .emoji-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .fleet-card h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #0b1a2f;
+    }
+
+    .fleet-card p {
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+
+    /* ----- "Why choose" / value props (unique value) ----- */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .value-icon {
+      background: #ebf4ff;
+      width: 64px;
+      height: 64px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+      color: #2b6cb0;
+    }
+
+    .value-item h4 {
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: #0b1a2f;
+    }
+
+    .value-item p {
+      color: #4a5568;
+      font-size: 0.95rem;
+    }
+
+    /* ----- Footer (simple) ----- */
+    .footer {
+      background: #0b1a2f;
+      color: #cbd5e0;
+      padding: 40px 0;
+      border-radius: 40px 40px 0 0;
+      margin-top: 60px;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-logo span {
+      color: #63b3ed;
+    }
+
+    .footer p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* ----- Responsive adjustments ----- */
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero-grid {
+        gap: 32px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .fleet-highlights {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .fleet-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Fast load: images are optimized via unsplash parameters */
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container navbar">
+      <a href="#" class="logo">Drive<span>Lux</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#fleet">Fleet</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero section with crisp imagery -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Premium rentals.<br>Zero compromise.</h1>
+        <p>Discover a curated fleet of modern vehicles — flexible terms, transparent pricing, and a seamless experience from booking to return.</p>
+        <a href="#fleet" class="btn">Explore our fleet →</a>
+      </div>
+      <div class="hero-image">
+        <img 
+          src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&auto=format&fit=crop&q=80" 
+          alt="Luxury car on scenic road" 
+          loading="eager"
+          width="600" height="400"
+          style="width:100%; height:auto;"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us & Services (core content) -->
+  <section id="about" class="section about-services">
+    <div class="container">
+      <h2 class="section-title">About Us & Services</h2>
+      <p class="section-subhead">We’re redefining automotive rentals with a focus on quality, transparency, and personal service — no hidden fees, no long queues.</p>
+
+      <div class="about-grid">
+        <!-- Left: About text -->
+        <div class="about-text">
+          <h3>Who we are</h3>
+          <p>DriveLux is a boutique rental agency founded by car enthusiasts who believe renting should feel as good as driving. We keep our fleet fresh, our process simple, and our team genuinely helpful.</p>
+          <p>Whether you need a sleek sedan for a business trip, an SUV for a weekend getaway, or a compact for city errands, we’ve got you covered — with flexible daily, weekly, and monthly plans.</p>
+          <div class="highlight">
+            ★ 4.9 average rating from 800+ renters<br>
+            ★ 98% on-time vehicle handover<br>
+            ★ Free cancellation up to 24h
+          </div>
+        </div>
+
+        <!-- Right: Services + fleet highlights combined -->
+        <div>
+          <h3 style="font-size:1.5rem; font-weight:600; margin-bottom:16px; color:#0b1a2f;">Our services</h3>
+          <ul class="services-list">
+            <li><strong>Self‑drive rentals</strong> – Daily, weekly, and monthly options with unlimited mileage packages.</li>
+            <li><strong>Chauffeur service</strong> – Professional drivers for airport transfers, events, or business meetings.</li>
+            <li><strong>Long‑term leasing</strong> – Flexible corporate and personal leases with maintenance included.</li>
+            <li><strong>Door‑to‑door delivery</strong> – We bring the car to you, anywhere in the metro area.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fleet highlights cards -->
+      <div id="fleet" class="fleet-highlights">
+        <h3>🚗 Fleet highlights</h3>
+        <div class="fleet-cards">
+          <div class="fleet-card">
+            <div class="emoji-icon">⚡</div>
+            <h4>Tesla Model 3</h4>
+            <p>Electric, autopilot, 300+ mi range. Zero emissions.</p>
+          </div>
+          <div class="fleet-card">
+            <div class="emoji-icon">🏔️</div>
+            <h4>Jeep Grand Cherokee</h4>
+            <p>Spacious SUV with 4x4, perfect for weekend escapes.</p>
+          </div>
+          <div class="fleet-card">
+            <div class="emoji-icon">🏎️</div>
+            <h4>BMW 4 Series</h4>
+            <p>Sporty coupe with premium sound and leather interior.</p>
+          </div>
+          <div class="fleet-card">
+            <div class="emoji-icon">🚐</div>
+            <h4>Mercedes V-Class</h4>
+            <p>Luxury van for groups up to 7 — ideal for airport runs.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- unique value propositions -->
+      <div style="margin-top: 64px;">
+        <h3 style="font-size:1.6rem; font-weight:700; margin-bottom:16px; color:#0b1a2f;">Why DriveLux?</h3>
+        <div class="value-grid">
+          <div class="value-item">
+            <div class="value-icon">🔑</div>
+            <h4>No hidden fees</h4>
+            <p>What you see is what you pay. Insurance and taxes included.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">⏱️</div>
+            <h4>5‑minute pickup</h4>
+            <p>Digital check‑in and express handover at our downtown hub.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🛡️</div>
+            <h4>24/7 support</h4>
+            <p>Real humans on call, plus roadside assistance anywhere.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🌿</div>
+            <h4>Hybrid & electric</h4>
+            <p>Expand your green options — over 30% of our fleet is electrified.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal footer (contact hint) -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-logo">Drive<span>Lux</span></div>
+      <p>Ready to drive? Reach us at hello@drivelux.example · +1 (555) 123‑4567</p>
+      <p style="font-size:0.8rem; opacity:0.6;">© 2025 DriveLux Automotive Rentals. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- tiny script for smooth anchor (already in CSS) – no extra JS needed -->
+</body>
+</html>
